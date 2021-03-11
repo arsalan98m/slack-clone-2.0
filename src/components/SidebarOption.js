@@ -1,24 +1,32 @@
+import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { db } from "../firebase";
+import { enterRoom } from "../features/appSlice";
+import SidebarModal from "./SidebarModal";
 
 const SidebarOption = ({ Icon, title, addChannelOption, id }) => {
-  const addChannel = () => {
-    console.log("add channgel");
-    const channelName = prompt("Please enter the channel name");
+  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
-    if (channelName) {
-      db.collection("rooms").add({
-        name: channelName,
-      });
-    }
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
   };
   const selectChannel = () => {
-    console.log("select channel");
+    if(id){
+      dispatch(enterRoom({roomId: id}))
+    }
   };
+
+  if (open) {
+    return <SidebarModal handleClose={handleClose} open={open} />;
+  }
 
   return (
     <SidebarOptionContainer
-      onClick={addChannelOption ? addChannel : selectChannel}
+      onClick={addChannelOption ? handleOpen : selectChannel}
     >
       {Icon && <Icon fontSize="small" style={{ padding: "10px" }} />}
       {Icon ? (
