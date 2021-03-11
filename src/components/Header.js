@@ -12,7 +12,6 @@ const Header = () => {
         <HeaderAvatar
         // TODO Add onCLick
         />
-
         <AccessTimeIcon />
       </HeaderLeft>
 
@@ -23,7 +22,6 @@ const Header = () => {
       </HeaderSearch>
 
       {/* Header Right */}
-
       <HeaderRight>
         <HelpOutlineIcon />
       </HeaderRight>
@@ -35,13 +33,14 @@ export default Header;
 
 const HeaderContainer = styled.div`
   display: flex;
-  border: 2px solid red;
+
   position: fixed;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: var(--slack-color);
   color: white;
+  padding: 10px;
 `;
 
 const HeaderLeft = styled.div`
@@ -49,7 +48,6 @@ const HeaderLeft = styled.div`
   align-items: center;
   flex: 0.3;
   margin-left: 20px;
-  border: 2px solid green;
 
   > .MuiSvgIcon-root {
     margin-left: auto;
@@ -87,7 +85,6 @@ const HeaderSearch = styled.div`
 
 const HeaderRight = styled.div`
   flex: 0.3;
-  border: 2px solid blue;
   display: flex;
   align-items: flex-end;
 
