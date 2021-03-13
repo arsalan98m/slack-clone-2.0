@@ -32,10 +32,12 @@ const SidebarOption = ({ Icon, title, addChannelOption, id }) => {
       {Icon ? (
         <h3>{title}</h3>
       ) : (
+       
         <SidebarOptionChannel>
           <span>#</span>
           {title}
         </SidebarOptionChannel>
+     
       )}
     </SidebarOptionContainer>
   );
@@ -49,6 +51,7 @@ const SidebarOptionContainer = styled.div`
   font-size: 12px;
   padding-left: 2px;
   cursor: pointer;
+ 
 
   :hover {
     opacity: 0.9;
@@ -68,3 +71,5 @@ const SidebarOptionChannel = styled.h3`
   padding: 10px 0;
   font-weight: 300;
 `;
+
+ 
